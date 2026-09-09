@@ -1,337 +1,1074 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Para ti ✨</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color"
+        content="#171229">
+
+  <title>Para vos ✨</title>
+
 
   <style>
+
+    /* =========================================
+       CONFIGURACIÓN GENERAL
+       ========================================= */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      font-family: Arial, Helvetica, sans-serif;
 
-      background:
-        radial-gradient(circle at top, #33265c 0%, #171229 45%, #08070d 100%);
-
-      color: white;
-      padding: 25px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* ESTRELLAS */
+
+    body {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #33265c 0%,
+          #171229 45%,
+          #08070d 100%
+        );
+
+      color: white;
+
+      padding: 25px;
+
+    }
+
+
+
+    /* =========================================
+       FONDO
+       ========================================= */
+
+    .background-glow {
+
+      position: fixed;
+
+      width: 350px;
+      height: 350px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(155, 105, 255, 0.12);
+
+      filter: blur(80px);
+
+      top: -100px;
+      left: -100px;
+
+      pointer-events: none;
+
+    }
+
+
+    .background-glow-2 {
+
+      position: fixed;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(213, 107, 255, 0.10);
+
+      filter: blur(90px);
+
+      bottom: -100px;
+      right: -100px;
+
+      pointer-events: none;
+
+    }
+
+
+
+    /* =========================================
+       ESTRELLAS
+       ========================================= */
 
     .stars {
+
       position: fixed;
+
       inset: 0;
+
       overflow: hidden;
+
       pointer-events: none;
+
+      z-index: 0;
+
     }
+
 
     .star {
+
       position: absolute;
+
       width: 3px;
+
       height: 3px;
+
       background: white;
+
       border-radius: 50%;
+
       opacity: 0.5;
-      animation: twinkle 3s infinite alternate;
+
+      animation:
+        twinkle 3s infinite alternate;
+
     }
+
 
     @keyframes twinkle {
+
       from {
+
         opacity: 0.15;
-        transform: scale(0.8);
+
+        transform:
+          scale(0.8);
+
       }
+
 
       to {
+
         opacity: 0.9;
-        transform: scale(1.5);
+
+        transform:
+          scale(1.5);
+
       }
+
     }
 
-    /* TARJETA */
+
+
+    /* =========================================
+       CONTENEDOR
+       ========================================= */
+
+    .container {
+
+      width: 100%;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      position: relative;
+
+      z-index: 2;
+
+    }
+
+
+
+    /* =========================================
+       TARJETA PRINCIPAL
+       ========================================= */
 
     .card {
+
       width: 100%;
+
       max-width: 430px;
 
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background:
+        rgba(255, 255, 255, 0.08);
 
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 28px;
+      backdrop-filter:
+        blur(14px);
 
-      padding: 35px 28px;
+      -webkit-backdrop-filter:
+        blur(14px);
 
-      text-align: center;
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+      border-radius:
+        28px;
+
+      padding:
+        35px 28px;
+
+      text-align:
+        center;
 
       box-shadow:
-        0 25px 60px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+        0 25px 60px
+        rgba(0, 0, 0, 0.35),
 
-      animation: appear 1s ease;
-      position: relative;
-      z-index: 2;
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.1);
+
+      animation:
+        appear 1s ease;
+
+      position:
+        relative;
+
     }
+
+
 
     @keyframes appear {
+
       from {
+
         opacity: 0;
-        transform: translateY(30px) scale(0.96);
+
+        transform:
+          translateY(30px)
+          scale(0.96);
+
       }
+
 
       to {
+
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
+
       }
+
     }
+
+
+
+    /* =========================================
+       ICONO
+       ========================================= */
 
     .icon {
-      font-size: 46px;
-      margin-bottom: 14px;
-      animation: float 3s ease-in-out infinite;
+
+      font-size:
+        46px;
+
+      margin-bottom:
+        14px;
+
+      animation:
+        float 3s
+        ease-in-out
+        infinite;
+
     }
+
 
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0);
+
       }
+
 
       50% {
-        transform: translateY(-8px);
+
+        transform:
+          translateY(-8px);
+
       }
+
     }
+
+
+
+    /* =========================================
+       TEXTOS INICIALES
+       ========================================= */
 
     h1 {
-      font-size: 30px;
-      margin-bottom: 12px;
+
+      font-size:
+        30px;
+
+      line-height:
+        1.2;
+
+      margin-bottom:
+        12px;
+
+      letter-spacing:
+        -0.5px;
+
     }
+
 
     .intro {
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-      font-size: 15px;
-      margin-bottom: 25px;
+
+      color:
+        rgba(255, 255, 255, 0.75);
+
+      line-height:
+        1.6;
+
+      font-size:
+        15px;
+
+      margin-bottom:
+        25px;
+
     }
+
+
+
+    /* =========================================
+       BOTÓN
+       ========================================= */
 
     button {
-      border: none;
-      padding: 14px 23px;
 
-      border-radius: 50px;
+      border:
+        none;
 
-      font-size: 15px;
-      font-weight: bold;
+      padding:
+        14px 23px;
 
-      color: white;
+      border-radius:
+        50px;
+
+      font-size:
+        15px;
+
+      font-weight:
+        bold;
+
+      color:
+        white;
 
       background:
-        linear-gradient(135deg, #9a70ff, #d56bff);
+        linear-gradient(
+          135deg,
+          #9a70ff,
+          #d56bff
+        );
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       box-shadow:
-        0 10px 30px rgba(168, 92, 255, 0.35);
-
-      transition: 0.3s ease;
-    }
-
-    button:active {
-      transform: scale(0.96);
-    }
-
-    /* MENSAJE OCULTO */
-
-    #message {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
+        0 10px 30px
+        rgba(168, 92, 255, 0.35);
 
       transition:
-        max-height 1s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+
+    }
+
+
+    button:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 13px 35px
+        rgba(168, 92, 255, 0.45);
+
+    }
+
+
+    button:active {
+
+      transform:
+        scale(0.96);
+
+    }
+
+
+
+    /* =========================================
+       MENSAJE OCULTO
+       ========================================= */
+
+    #message {
+
+      max-height:
+        0;
+
+      opacity:
+        0;
+
+      overflow:
+        hidden;
+
+      transition:
+        max-height 1.3s ease,
         opacity 1s ease,
         margin 1s ease;
 
-      color: rgba(255,255,255,0.9);
+      color:
+        rgba(255, 255, 255, 0.90);
 
-      line-height: 1.75;
-      font-size: 16px;
+      line-height:
+        1.75;
 
-      text-align: left;
+      font-size:
+        16px;
+
+      text-align:
+        left;
+
     }
+
 
     #message.show {
-      max-height: 600px;
-      opacity: 1;
-      margin-top: 28px;
+
+      max-height:
+        1500px;
+
+      opacity:
+        1;
+
+      margin-top:
+        28px;
+
     }
+
+
+
+    /* =========================================
+       DESTACADOS
+       ========================================= */
 
     .highlight {
-      color: #e2c6ff;
-      font-weight: bold;
+
+      color:
+        #e2c6ff;
+
+      font-weight:
+        bold;
+
     }
+
+
+    .important {
+
+      font-size:
+        17px;
+
+      color:
+        #f0ddff;
+
+    }
+
+
+
+    /* =========================================
+       SEPARADOR
+       ========================================= */
+
+    .separator {
+
+      width:
+        50px;
+
+      height:
+        1px;
+
+      background:
+        rgba(255, 255, 255, 0.25);
+
+      margin:
+        24px auto;
+
+    }
+
+
+
+    /* =========================================
+       BLOQUE DE CÓDIGO
+       ========================================= */
 
     .code {
-      margin-top: 25px;
 
-      background: rgba(0,0,0,0.25);
+      margin-top:
+        27px;
 
-      padding: 16px;
+      background:
+        rgba(0, 0, 0, 0.25);
 
-      border-radius: 15px;
+      padding:
+        16px;
 
-      font-family: monospace;
+      border-radius:
+        15px;
 
-      font-size: 13px;
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      color: #d7c7ff;
+      font-family:
+        "Courier New",
+        monospace;
 
-      text-align: left;
+      font-size:
+        13px;
+
+      line-height:
+        1.6;
+
+      color:
+        #d7c7ff;
+
+      text-align:
+        left;
+
+      overflow-x:
+        auto;
+
     }
+
+
+    .code-comment {
+
+      color:
+        rgba(255, 255, 255, 0.45);
+
+    }
+
+
+
+    /* =========================================
+       TEXTO FINAL
+       ========================================= */
 
     .final {
-      text-align: center;
-      margin-top: 24px;
 
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
+      text-align:
+        center;
+
+      margin-top:
+        25px;
+
+      font-size:
+        14px;
+
+      color:
+        rgba(255, 255, 255, 0.60);
+
     }
 
+
+    .heart {
+
+      display:
+        inline-block;
+
+      animation:
+        heartbeat 1.8s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+
+        transform:
+          scale(1);
+
+      }
+
+
+      50% {
+
+        transform:
+          scale(1.15);
+
+      }
+
+    }
+
+
+
+    /* =========================================
+       CELULARES PEQUEÑOS
+       ========================================= */
+
+    @media
+    (max-width: 380px) {
+
+      body {
+
+        padding:
+          18px;
+
+      }
+
+
+      .card {
+
+        padding:
+          30px 22px;
+
+      }
+
+
+      h1 {
+
+        font-size:
+          27px;
+
+      }
+
+
+      #message {
+
+        font-size:
+          15px;
+
+      }
+
+    }
+
+
+
   </style>
+
 </head>
+
+
 
 <body>
 
-  <div class="stars" id="stars"></div>
 
-  <div class="card">
+  <!-- =======================================
+       FONDO
+       ======================================= -->
 
-    <div class="icon">✨</div>
+  <div class="background-glow"></div>
 
-    <h1>Mucha suerte mañana</h1>
+  <div class="background-glow-2"></div>
 
-    <p class="intro">
-      Sé que mañana es un día importante,
-      así que hice algo pequeño para recordarte algo.
-    </p>
+  <div
+    class="stars"
+    id="stars">
+  </div>
 
-    <button onclick="showMessage()" id="button">
-      Presiona aquí 💜
-    </button>
 
-    <div id="message">
 
-      <p>
-        Quería recordarte que eres una persona
-        <span class="highlight">realmente increíble</span>.
-      </p>
+  <!-- =======================================
+       CONTENIDO PRINCIPAL
+       ======================================= -->
 
-      <br>
+  <main class="container">
 
-      <p>
-        Eres inteligente, capaz y tienes muchísimo más potencial
-        del que probablemente tú misma ves algunas veces.
-      </p>
 
-      <br>
+    <div class="card">
 
-      <p>
-        Así que mañana, aunque aparezcan los nervios,
-        confía en todo lo que sabes y en todo lo que has hecho
-        para llegar hasta aquí.
-      </p>
 
-      <br>
-
-      <p>
-        No necesitas que todo salga perfectamente para demostrar
-        lo buena que eres.
-      </p>
-
-      <br>
-
-      <p>
-        Solo ve, haz lo tuyo y recuerda que hay alguien por aquí
-        que confía muchísimo en ti.
-      </p>
-
-      <br>
-
-      <p class="highlight">
-        Espero que mañana te vaya increíble. ✨
-      </p>
-
-      <div class="code">
-        if (mañana === "día importante") {<br>
-        &nbsp;&nbsp;suerte = Infinity;<br>
-        &nbsp;&nbsp;confianza = 100;<br>
-        }<br><br>
-
-        console.log("Vas a hacerlo increíble 💜");
+      <div class="icon">
+        ✨
       </div>
 
-      <div class="final">
-        Hecho especialmente para ti.
+
+      <h1>
+        Mucha suerte mañana
+      </h1>
+
+
+      <p class="intro">
+
+        Sé que mañana tenés algo importante,
+        así que se me ocurrió hacerte esto
+        para desearte suerte :)
+
+      </p>
+
+
+
+      <button
+        onclick="showMessage()"
+        id="button">
+
+        Presioná aquí 💜
+
+      </button>
+
+
+
+      <!-- ===================================
+           MENSAJE
+           =================================== -->
+
+      <div id="message">
+
+
+        <p>
+
+          Solo quería recordarte algo
+          antes de mañana:
+
+          <span class="highlight">
+            sos una persona increíble.
+          </span>
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Y no te lo digo solo por decirlo.
+          Sos inteligente, capaz, dedicada
+          y tenés un montón de cualidades
+          que a veces tal vez ni vos misma
+          notás.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Sé que mañana puede que te den
+          nervios o que empecés a pensar
+          demasiado las cosas, pero mirá,
+          ya llegaste hasta aquí por algo.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Todo lo que sabés, todo lo que
+          has hecho y todo el esfuerzo que
+          has puesto para llegar hasta este
+          punto también cuentan.
+
+        </p>
+
+
+        <div class="separator"></div>
+
+
+        <p>
+
+          Así que tratá de confiar un
+          poquito más en vos.
+
+          No tenés que hacer absolutamente
+          todo perfecto.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Solo andá, hacé lo mejor que podás
+          y demostrá todo eso que ya sabés
+          hacer.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Y por si mañana se te llega a
+          olvidar:
+
+          hay alguien por aquí que de verdad
+          cree mucho en vos y que sabe que
+          sos capaz de cosas bien grandes.
+
+        </p>
+
+
+        <br>
+
+
+        <p
+          class="highlight important">
+
+          Te deseo muchísima suerte mañana.
+
+          Vas a hacerlo súper bien. ✨
+
+        </p>
+
+
+
+        <!-- =================================
+             DETALLE DE PROGRAMADOR
+             ================================= -->
+
+        <div class="code">
+
+          <span class="code-comment">
+            // Por si todavía quedaban dudas
+          </span>
+
+          <br><br>
+
+          if (mañana === "día importante") {
+
+          <br>
+
+          &nbsp;&nbsp;suerte = Infinity;
+
+          <br>
+
+          &nbsp;&nbsp;confianza = 100;
+
+          <br>
+
+          &nbsp;&nbsp;nervios = 0;
+
+          <br>
+
+          }
+
+          <br><br>
+
+          console.log("Vos podés 💜");
+
+        </div>
+
+
+
+        <div class="final">
+
+          Hecho especialmente para vos
+
+          <span class="heart">
+            ✨
+          </span>
+
+        </div>
+
+
       </div>
+
 
     </div>
 
-  </div>
+
+  </main>
+
+
+
+  <!-- =======================================
+       JAVASCRIPT
+       ======================================= -->
 
   <script>
 
+
+    /* =======================================
+       MOSTRAR MENSAJE
+       ======================================= */
+
     function showMessage() {
 
-      const message = document.getElementById("message");
-      const button = document.getElementById("button");
 
-      message.classList.add("show");
+      const message =
+        document.getElementById(
+          "message"
+        );
 
-      button.style.opacity = "0";
-      button.style.pointerEvents = "none";
 
-      setTimeout(() => {
-        button.style.display = "none";
-      }, 300);
+      const button =
+        document.getElementById(
+          "button"
+        );
+
+
+      message.classList.add(
+        "show"
+      );
+
+
+      button.style.opacity =
+        "0";
+
+
+      button.style.pointerEvents =
+        "none";
+
+
+      setTimeout(
+        () => {
+
+          button.style.display =
+            "none";
+
+        },
+        300
+      );
+
+
+      setTimeout(
+        () => {
+
+          message.scrollIntoView({
+
+            behavior:
+              "smooth",
+
+            block:
+              "nearest"
+
+          });
+
+        },
+        400
+      );
+
 
     }
 
 
-    /* CREAR ESTRELLAS */
 
-    const starsContainer = document.getElementById("stars");
+    /* =======================================
+       CREAR ESTRELLAS
+       ======================================= */
 
-    for (let i = 0; i < 70; i++) {
+    const starsContainer =
+      document.getElementById(
+        "stars"
+      );
 
-      const star = document.createElement("div");
 
-      star.classList.add("star");
+    const numberOfStars =
+      75;
 
-      star.style.left = Math.random() * 100 + "%";
-      star.style.top = Math.random() * 100 + "%";
+
+    for (
+      let i = 0;
+      i < numberOfStars;
+      i++
+    ) {
+
+
+      const star =
+        document.createElement(
+          "div"
+        );
+
+
+      star.classList.add(
+        "star"
+      );
+
+
+      star.style.left =
+        Math.random() *
+        100 +
+        "%";
+
+
+      star.style.top =
+        Math.random() *
+        100 +
+        "%";
+
+
+      const size =
+        Math.random() *
+        2 +
+        1;
+
+
+      star.style.width =
+        size +
+        "px";
+
+
+      star.style.height =
+        size +
+        "px";
+
 
       star.style.animationDelay =
-        Math.random() * 3 + "s";
+        Math.random() *
+        3 +
+        "s";
+
 
       star.style.animationDuration =
-        2 + Math.random() * 4 + "s";
+        2 +
+        Math.random() *
+        4 +
+        "s";
 
-      starsContainer.appendChild(star);
+
+      starsContainer.appendChild(
+        star
+      );
+
 
     }
+
+
 
   </script>
 
+
 </body>
+
+
 </html>

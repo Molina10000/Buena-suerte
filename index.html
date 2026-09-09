@@ -16,10 +16,6 @@
 
   <style>
 
-    /* =========================================
-       CONFIGURACIÓN GENERAL
-       ========================================= */
-
     * {
       margin: 0;
       padding: 0;
@@ -138,7 +134,6 @@
       position: absolute;
 
       width: 3px;
-
       height: 3px;
 
       background: white;
@@ -201,7 +196,7 @@
 
 
     /* =========================================
-       TARJETA PRINCIPAL
+       TARJETA
        ========================================= */
 
     .card {
@@ -246,7 +241,6 @@
         relative;
 
     }
-
 
 
     @keyframes appear {
@@ -319,7 +313,7 @@
 
 
     /* =========================================
-       TEXTOS INICIALES
+       TEXTOS
        ========================================= */
 
     h1 {
@@ -462,7 +456,7 @@
     #message.show {
 
       max-height:
-        1500px;
+        1800px;
 
       opacity:
         1;
@@ -524,53 +518,112 @@
 
 
     /* =========================================
-       BLOQUE DE CÓDIGO
+       FLOR DE TEXTO
        ========================================= */
 
-    .code {
+    .flower-box {
 
       margin-top:
-        27px;
+        28px;
 
-      background:
-        rgba(0, 0, 0, 0.25);
+      margin-bottom:
+        8px;
 
       padding:
-        16px;
+        22px 12px;
 
       border-radius:
-        15px;
+        18px;
+
+      background:
+        rgba(0, 0, 0, 0.18);
 
       border:
         1px solid
         rgba(255, 255, 255, 0.08);
 
-      font-family:
-        "Courier New",
-        monospace;
-
-      font-size:
-        13px;
-
-      line-height:
-        1.6;
-
-      color:
-        #d7c7ff;
-
       text-align:
-        left;
-
-      overflow-x:
-        auto;
+        center;
 
     }
 
 
-    .code-comment {
+    .flower {
+
+      display:
+        inline-block;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      white-space:
+        pre;
+
+      text-align:
+        left;
+
+      font-size:
+        17px;
+
+      line-height:
+        1.25;
 
       color:
-        rgba(255, 255, 255, 0.45);
+        #e7d5ff;
+
+      text-shadow:
+        0 0 12px
+        rgba(213, 107, 255, 0.35);
+
+      animation:
+        flowerGlow 3s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    @keyframes flowerGlow {
+
+      0%,
+      100% {
+
+        opacity:
+          0.82;
+
+        transform:
+          scale(1);
+
+      }
+
+
+      50% {
+
+        opacity:
+          1;
+
+        transform:
+          scale(1.03);
+
+      }
+
+    }
+
+
+    .flower-text {
+
+      margin-top:
+        15px;
+
+      font-size:
+        13px;
+
+      color:
+        rgba(255, 255, 255, 0.55);
+
+      text-align:
+        center;
 
     }
 
@@ -597,7 +650,7 @@
     }
 
 
-    .heart {
+    .spark {
 
       display:
         inline-block;
@@ -670,6 +723,14 @@
 
       }
 
+
+      .flower {
+
+        font-size:
+          15px;
+
+      }
+
     }
 
 
@@ -683,10 +744,6 @@
 <body>
 
 
-  <!-- =======================================
-       FONDO
-       ======================================= -->
-
   <div class="background-glow"></div>
 
   <div class="background-glow-2"></div>
@@ -697,10 +754,6 @@
   </div>
 
 
-
-  <!-- =======================================
-       CONTENIDO PRINCIPAL
-       ======================================= -->
 
   <main class="container">
 
@@ -737,10 +790,6 @@
       </button>
 
 
-
-      <!-- ===================================
-           MENSAJE
-           =================================== -->
 
       <div id="message">
 
@@ -817,7 +866,7 @@
         <p>
 
           Solo andá, hacé lo mejor que podás
-          y demostrá todo eso que ya sabés
+          y confiá en todo eso que ya sabés
           hacer.
 
         </p>
@@ -852,39 +901,32 @@
 
 
 
-        <!-- =================================
-             DETALLE DE PROGRAMADOR
-             ================================= -->
+        <div class="flower-box">
 
-        <div class="code">
+          <div class="flower">
+        .-.
+      .'   '.
+     /       \
+    |         |
+     \       /
+      '.___.'
+        \|/
+      -- * --
+        /|\
+       / | \
+      /  |  \
+         |
+         |
+        / \
+       /   \
+          </div>
 
-          <span class="code-comment">
-            // Por si todavía quedaban dudas
-          </span>
+          <div class="flower-text">
 
-          <br><br>
+            Una florcita virtual porque
+            una de verdad no cabía en el link 🌷
 
-          if (mañana === "día importante") {
-
-          <br>
-
-          &nbsp;&nbsp;suerte = Infinity;
-
-          <br>
-
-          &nbsp;&nbsp;confianza = 100;
-
-          <br>
-
-          &nbsp;&nbsp;nervios = 0;
-
-          <br>
-
-          }
-
-          <br><br>
-
-          console.log("Vos podés 💜");
+          </div>
 
         </div>
 
@@ -894,7 +936,7 @@
 
           Hecho especialmente para vos
 
-          <span class="heart">
+          <span class="spark">
             ✨
           </span>
 
@@ -911,16 +953,8 @@
 
 
 
-  <!-- =======================================
-       JAVASCRIPT
-       ======================================= -->
-
   <script>
 
-
-    /* =======================================
-       MOSTRAR MENSAJE
-       ======================================= */
 
     function showMessage() {
 
@@ -982,10 +1016,6 @@
     }
 
 
-
-    /* =======================================
-       CREAR ESTRELLAS
-       ======================================= */
 
     const starsContainer =
       document.getElementById(
@@ -1069,6 +1099,5 @@
 
 
 </body>
-
 
 </html>
